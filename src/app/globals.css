@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --solana-purple: #9945FF;
+  --solana-green: #14F195;
+}
+
+body {
+  background: linear-gradient(135deg, #070A0E 0%, #0D1117 50%, #1a1f2e 100%);
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-solana-purple to-solana-green;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-gray-900/80 to-gray-800/50 backdrop-blur-xl;
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    background: linear-gradient(#0D1117, #0D1117) padding-box,
+                linear-gradient(135deg, #9945FF, #14F195) border-box;
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px rgba(153, 69, 255, 0.3);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 40px rgba(20, 241, 149, 0.3);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0D1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9945FF, #14F195);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
